@@ -1,0 +1,52 @@
+Метод создания массива
+/* Метод создания массива */
+double[] MassivCreate()
+{
+    List<string> lis = new List<string>();
+    Console.WriteLine("Enter numbers for massiv, They can be int or double-you can wtite them like 7/8 , 7.8 , 7,8), when done press enter");
+    /* ВАЖНО! Сначало создаём список , так как массив должен иметь ограниченный размер */
+    while (true)
+    {
+        Console.Write("Enter number : ");
+        string enter = Console.ReadLine();
+        /* Замена символов . и / на запятую , что бы был возможен переврд в double */
+        if (enter.Contains('.') == true) enter = enter.Replace('.', ',');
+        if (enter.Contains('/') == true) enter = enter.Replace('/', ',');
+        if (enter == "") break;
+        else lis.Add(enter);
+    }
+    /* ВАЖНО! Переводим списко в массив, благодаря тому что у нас есть длина списка */
+    int size = lis.Count;
+    double[] mass = new double[size];
+    for (int i = 0; i < size; i++)
+    {
+        mass[i] = double.Parse(lis[i]);
+    }
+    return mass;
+}
+Метод заполнения массива случайными числами
+Заполнение массива случайными числами от до
+
+void FillArray(int[] collection,int minNumber,int maxNumber)
+{
+    int lenght = collection.Length;
+    int index = 0;
+    while (index < lenght)
+    {
+        collection[index] = new Random().Next(minNumber,maxNumber);
+        index++;
+    }
+}
+Схема создания и подключение метода
+
+Console.Write("Enter mass length : ");
+int length = int.Parse(Console.ReadLine());
+int[] array2 = new int[length];
+
+FillArray(array2,1,10);
+Метод повтора программы или выхода
+do {
+    Console.Clear();
+    Console.WriteLine("\tДля выхода нажмите ESC,\n для повторна, нажмите любую клавишу к примеру ENTER");
+}
+while (Console.ReadKey().Key != ConsoleKey.Escape);
