@@ -1,0 +1,15 @@
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/bin/Debug/net6.0/CT#1 (First part of Study)
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/bin/Debug/net6.0/CT#1 (First part of Study).deps.json
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/bin/Debug/net6.0/CT#1 (First part of Study).runtimeconfig.json
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/bin/Debug/net6.0/CT#1 (First part of Study).dll
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/bin/Debug/net6.0/CT#1 (First part of Study).pdb
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).csproj.AssemblyReference.cache
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).GeneratedMSBuildEditorConfig.editorconfig
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).AssemblyInfoInputs.cache
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).AssemblyInfo.cs
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).csproj.CoreCompileInputs.cache
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).dll
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/refint/CT#1 (First part of Study).dll
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).pdb
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/CT#1 (First part of Study).genruntimeconfig.cache
+/Users/mariashiraeva/Desktop/GeekBrainsStudy/ControlTask/CT#1 (First part of Study)/obj/Debug/net6.0/ref/CT#1 (First part of Study).dll
