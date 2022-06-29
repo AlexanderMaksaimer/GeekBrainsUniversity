@@ -47,3 +47,37 @@ string[] FirstArray()//Метод создания массива
     return (count, arrayResul);
 }
 
+void FillArray(string[] array, string[] fillArray)//Метод заполнения массива 
+{
+    int index = 0;
+        for (int i = 0; i < array.Length; i++) if (array[i].Length <= 3)
+            {
+                fillArray[index] = array[i];
+                index++;
+           }
+            
+}
+
+string PrintArray(string[] array) // Метод печати массива
+{
+    string result = String.Empty;
+    result += "[";
+    for (int i = 0; i < array.Length; i++)
+    {
+        result += '"' + array[i] + '"';
+        if (i < array.Length - 1) result += ',';
+    }
+    result += "]";
+    return result;
+}
+
+
+Console.WriteLine("Введите с клавиатуры эллементы массива ");
+string[] array = FirstArray(); // Создаю изначальный массив
+(int count, string[] secondArray) = SecondArray(array); // Создаю второй массив
+FillArray(array, secondArray); // Заполняю второй массив в соответствии с условием (вывод тех элементов, чья длина <=3 символов)
+Console.WriteLine();
+Console.WriteLine("Первоначальный массив:");
+Console.WriteLine($"\n{PrintArray(array)} "); //Вывод на консоль изначального массива
+Console.WriteLine("Результат задачи (массив из элементов, длина которых <=3):");
+Console.WriteLine($"\n{PrintArray(secondArray)}"); //Вывод на консоль результата (массив длинной <=3 символа)
