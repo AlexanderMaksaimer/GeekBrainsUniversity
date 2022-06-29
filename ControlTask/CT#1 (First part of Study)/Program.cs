@@ -11,12 +11,12 @@
 ["Russia","Denmark", "Kazan"] ->[]*/
 
 // 1. метод создания массива строк
-// 2. метод создания нового массива с определенной длиной (например <=3 символа)
+// 2. метод создания нового массива с определенной длиной (например, как в условии <=3 символа)
 // 3. вывод первого и второго массива на консоль
 
-string[] ArrayCreation()//Метод создания массива 
+string[] FirstArray()//Метод создания массива 
 {
-    Console.WriteLine("Введите эллементы массива - после ввода каждого элемента - нажмите любую кнопку для ввода следующего элемента - или нажмите ESC для завершения создания массива");
+    
     int index = 0;
     string text = String.Empty;
     List<string> arrayList = new List<string>();
@@ -36,5 +36,14 @@ string[] ArrayCreation()//Метод создания массива
     for (int i = 0; i < array.Length; i++) array[i] = arrayList[i];
 
     return array;
+}
+
+(int, string[]) SecondArray(string[] array)//Метод создания нового массива
+{
+    int count = 0;
+        for (int i = 0; i < array.Length; i++) if (array[i].Length <= 3) count++;
+            
+    string[] arrayResul = new string[count];
+    return (count, arrayResul);
 }
 
