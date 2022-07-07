@@ -125,6 +125,94 @@ print(inverted)
 
 # for
 
+for i in 1,2,3,4,5:
+    print(i**2)
 
 
+list = [1,2,3,4,5,10,7]
+for i in list:
+    print(i)
 
+r = range (10) # диапазон от 0 до 9
+for i in r:
+    print(i)
+
+for i in range (5): # диапазон до 5
+    print(i)
+
+for i in range(1, 10): # диапазон от 1 до 10
+    print(i)
+
+for i in 'qwe - rty': # пробег по строкам
+    print(i)
+
+# Немного о строках
+
+text = 'сьешь еще этих мягких французских булок'
+
+help(text.istitle) # подсказка в терминале по неизвестной команде
+
+print(text[0]) # обращение к первому элементу строки
+print(text(1)) # обращение ко второму элементу строки
+print(text[len(text)]) # IndexError
+print(text[len(text)-1]) # к (последний символ строки)
+print(text[5]) # б (5 символ с конца строки)
+print(text[:]) # print(text)
+print(text[2:5]) #съ (от 2 до 5 символа)
+print(text[6:-18]) # еще этих мягких (с 6 до -18 символа)
+print(text[0:len(text):6]) #сеикакл
+
+print(len(text)) # (определение количества символов)
+print('еще' in text) # True (определение подстроки в строке используем оператор in)
+print(text.isdigit()) # False (проверка являются ли все элементы строки числами)
+print(text.islower()) # True (проверка являются ли все элементы символами нижнего регистра)
+print(text.replace('еще', 'ЕЩЕ')) # (замена)
+
+for c in text:
+    print(c)
+
+# Списки (введние)
+
+numbers = [1,2,3,4,5]
+print(numbers) # [1,2,3,4,5]
+
+ran = range(1,6) # Диапазон
+numbers = list(ran)
+print(numbers) # [1,2,3,4,5]
+
+numbers[0] = 10 # обращение к индексам [0]
+print(f'{len(numbers)}len') # покажет длину списка / листа / масива
+print(numbers) # [10,2,3,4,5]
+
+for i in numbers:
+    i *= 2
+    print(i) # [20,4,6,8,10]
+print(numbers) # [10,2,3,4,5]
+
+colors = ['red', 'greeen', 'blue']
+
+for e in colors:
+    print(e) # red green blue
+
+for e in colors:
+    print(e*2) # redred greengreen blueblue
+
+colors.append('gray') # добавить элемент в конец
+print (colors == ['red', 'green', 'blue', 'gray']) # True
+colors.remove('red') # del colors[0] # удалить элемент
+
+del colors [0]
+
+# Функции
+
+def f (x):
+    if x == 1: 
+        return 'Целое'
+    elif x == 2.3:
+        return 23
+    else:
+        return
+
+arg = 1
+print(f(arg))
+print(type(f(arg)))
