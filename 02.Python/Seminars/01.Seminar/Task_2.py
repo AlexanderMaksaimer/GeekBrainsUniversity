@@ -36,3 +36,11 @@ for num in list_numbers:
         max = num
 
 print("{} is max ".format(max))
+
+
+# Вариант преподавателя
+import random
+lst = []
+for i in range(5):
+    lst.append(random.randint(1,100))
+print(lst)
