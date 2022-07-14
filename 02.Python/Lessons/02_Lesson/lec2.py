@@ -146,4 +146,60 @@ for item in dictionary: # for (k,v) in dictionary items():
     # down:
     # right:
 
-# Множества
+# Множества. Базовое API
+colors = {'red','green','blue'}
+print(colors) #'red','green','blue'
+
+colors.add('red')
+print(colors)
+
+colors.add('gray') #добавить элемент в множество
+print(colors) #'red','green','blue' 'gray'
+
+colors.remove('red') # удалить элемент из множества
+print(colors) #'green','blue', 'gray'
+
+colors.discard('red') #удаление элемента из множества (без возможной ошибки, если элемента нет) 
+print(colors) # 'green','blue', 'gray'
+
+colors.clear() #{} очистить множество
+
+a = {1, 2, 3, 5, 8}
+b = {2, 5, 8, 13, 21}
+c = a.copy() # скопирует множество из множества a
+u = a.union(b) #объединение множеств
+i = a.intersection(b) # пересечение множеств
+dl = a.difference(b) # разница в множествах
+
+
+q = a \
+    .union(b) \
+    .difference(a.intersection(b))
+# {1, 21, 3, 13}
+
+s = frozenset(a) # заморозка множества. после нее операции по добавлению, изменению и тд невозможны
+
+# СПИСКИ
+
+list1 = [1,2,3,4,5]
+list2 = list1
+
+for e in list1:
+    print(e)
+
+print()
+
+for e in list2:
+    print(e)
+
+list1[0] = 123 # меняются значения в списке. работает в обе стороны (можно поменять во втором)
+
+list = [1,2,3,4,5]
+print(list.pop()) # удаление последнего элемента списка
+print(len(list1)) 
+
+print(list1.pop(2)) # удаление второго элемента
+print(list1.insert(2,11)) # вставить на нужную позицию элемент (указываем элемент после которого поставить новый)
+print(list1.append(11)) #добавление в конец списка
+
+
