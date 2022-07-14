@@ -1,6 +1,6 @@
 import random
 
-def input_number_test(text):
+def input_number(text):
 
     int_test = True
     is_minus = False
@@ -15,7 +15,7 @@ def input_number_test(text):
                 coord *= -1
             int_test = False
         else :
-            print("Not a number , try again")
+            print("Вы ввели не число , попробуйте снова ")
     return coord
 
 def input_number_test_not_minus(text):
@@ -58,7 +58,7 @@ def input_number_test_float(text):
             print("Not a number , try again")
     return coord
 
-def input_number_test_biger_then_zero(text):
+def input_number_bigger_then_zero(text):
 
     int_test = True
     is_minus = False
@@ -70,11 +70,11 @@ def input_number_test_biger_then_zero(text):
         if coord.isdigit():
             coord = int(coord)
             if coord <= 0:
-                print("Enter number > 0")
+                print("Введите число больше нуля ( > 0)")
             else:
                 int_test = False
         else :
-            print("Not a number , try again")
+            print("Вы ввели не число, попробуйте снова")
     return coord
 
 def random_array_creation(elements,min_number,max_number):
