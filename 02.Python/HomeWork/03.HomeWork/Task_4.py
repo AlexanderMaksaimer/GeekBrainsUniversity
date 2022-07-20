@@ -6,6 +6,11 @@
 # - 2 -> 10
 
 import function as FUNC
+#Можно было сразу строкой:
+# number = ''
+# while n > 0:
+# number = str(n % 2) + number
+# n //= 2
 
 def recode_number(number : int) -> list:
     """Recodes number in 2byte code

@@ -23,6 +23,11 @@ def multiplication(list_of_numbers : list) -> list:
         multi_list.append(list_of_numbers[len(list_of_numbers) % 2+1] ** 2)
     return multi_list
 
+#Чтобы не дописывать условие после цикла, пробуйте
+# for i in range(0, num_list_size//2 + num_list_size%2)
+# Или math.ceil, который округляет в большую сторону
+# for i in range(0, math.ceil(num_list_size/2) )
+
 list_of_numbers = FUNC.array_creation(5,1,25)
 result_list = multiplication(list_of_numbers)
 
