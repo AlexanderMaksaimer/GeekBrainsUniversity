@@ -130,7 +130,7 @@ def sum_number_odd_positions(list_of_numbers:list) -> int:
 
     return sum
 
-def what_is_on_not_in_list(list_of_numbers:list) -> str:
+def not_in_array(list_of_numbers:list) -> str:
     """Makes a text with elements on not even positions
     Args:
         list_of_numbers (list): array in which not even positions will be looked up
@@ -181,7 +181,7 @@ def check_min_max_fractional_numbers(list_of_numbers : list) -> int:
     Returns:
         int: min and max fractional numbers
     """
-    # проходим по списку дробных числе и проверяем больше максимума - записываем в максимум, меньше минимума - записываем в минимум
+    # проходим по массиву дробных чисел и проверяем больше максимума - записываем в максимум, меньше минимума - записываем в минимум
     max = list_of_numbers[0] - int(list_of_numbers[0])
     min = list_of_numbers[0] - int(list_of_numbers[0]) 
     for i in list_of_numbers:
@@ -233,44 +233,42 @@ def convert_array_to_integer(list_of_numbers : list) -> int:
         convert = convert + str(i)
     return int(convert)
 
-def fibonachi_plus(fib_range : int) -> list:
-    """makes array of fibonacci numbers > 0
+def fibonachi_positive(fib_range : int) -> list: # положительный фибоначи
+    """Create array with positive numbers of fibonachi
     Args:
         fib_range (int): range of fibonacci numbers
     Returns:
-        list: > 0 fibonacci array
+        list: positive part of Negafibonachi
     """
-    flibonachi_list = [0,1]
+    array_fibonachi = [0,1]
     if fib_range > 1:
         for i in range(2,fib_range+1):
-            # формула рассчёта фибоначи, для этог первые 2 числа записанны
-            flibonachi_list.append(flibonachi_list[i-1]+flibonachi_list[i-2])
-    return flibonachi_list
+            array_fibonachi.append(array_fibonachi[i-1]+array_fibonachi[i-2])
+    return array_fibonachi
 
-def fibonachi_minus(fib_range : int) -> list: # наверное можно было обойтись без этого и просто каждый второй эллемент обычного фибоначи умнодить на -1, но подумал - вдруг когда то потребуется только минуосовй фибоначи
-    """makes fibonacci numbers < 0
+def fibonachi_negative(fib_range : int) -> list: # отрицательный фибоначи. 
+    """Create array with negative numbers of fibonachi
     Args:
         fib_range (int): range of fibonacci numbers
     Returns:
-        list: < 0 fibonacci array
+        list: negative part of Negafibonachi
     """
-    flibonachi_list = [0,1]
+    array_fibonachi = [0,1]
     if fib_range > 1:
         for i in range(2,fib_range+1):
-            # формула рассчёта фибоначи, для этог первые 2 числа записанны
-            flibonachi_list.append(flibonachi_list[i-2]-flibonachi_list[i-1])
-    return flibonachi_list
+            array_fibonachi.append(array_fibonachi[i-2]-array_fibonachi[i-1])
+    return array_fibonachi
 
-def fibonachi_from_minus_to_plus(fib_range : int) -> list:
-    """compels two fibonacci arrays ( < 0 and > 0 ) in one fibonacci array
+def fibonachi_result(fib_range : int) -> list:
+    """Create genaral array with positive and negative numbers of fibonachi
     Args:
         fib_range (int): range of fibonacci 
     Returns:
-        list: list of fibonacci numbers
+        list: general array
     """
-    fib_plus = fibonachi_plus(fib_range) # создаёт положителный фибоначи
-    flibonachi_list = fibonachi_minus(fib_range) # создаёт отрицательный фибоначи
-    array_turn(flibonachi_list) # разворачивает отрицательный фибоначи
-    for i in range(1,fib_range+1): # к отрицательному добавляет положительный по каждому эллементу 
-        flibonachi_list.append(fib_plus[i])
-    return flibonachi_list
+    positive = fibonachi_positive(fib_range) # создаёт положителный фибоначи
+    negative = fibonachi_negative(fib_range) # создаёт отрицательный фибоначи
+    array_turn(negative) # разворачиваем минусовой фибоначи при помощи функции разворота массива
+    for i in range(1,fib_range+1): # к минусовому массиву добавляем положительный по каждому эллементу
+        negative.append(positive[i])
+    return negative
