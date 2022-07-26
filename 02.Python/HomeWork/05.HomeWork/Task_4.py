@@ -1,10 +1,12 @@
 # 4- Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 # Входные и выходные данные хранятся в отдельных текстовых файлах
 
-def spliting_text(text: str) -> str :
-    """У меня почему то долго не получалось в пару действий посчитать и схранить символ - пришлось делить все символы пробелом
+print('Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных. Входные и выходные данные хранятся в отдельных текстовых файлах')
+
+def text_split(text: str) -> str :
+    """ Делим символы пробелом
     Args:
-        text (str): вводится текс для RLE кодировки
+        text (str): ввод текста для RLE
     Returns:
         str: Выводятся все символы через пробел
     """
@@ -17,8 +19,8 @@ def spliting_text(text: str) -> str :
     result_list = result.split()
     return result_list
 
-def RLE_code(list_str: str) -> str:
-    """По сути - берёт строку с пробелами - дели её и считает кол-во символов
+def RLE(list_str: str) -> str:
+    """Строку с пробелами делим и считаем количество символов
     Args:
         list_str (str): строка с пробелами
     Returns:
@@ -29,12 +31,12 @@ def RLE_code(list_str: str) -> str:
         result += f"{len(i)}{i[0]}"
     return result
 
-def RLE_in_string(REL_text: str) -> str:
-    """Берёт пару Число + Символ и поторяет символ указанное кол-во раз
+def RLE_str(REL_text: str) -> str:
+    """Число + Символ повторяем символ указанное количество раз
     Args:
-        REL_text (str): КОД RLE
+        REL_text (str): код RLE
     Returns:
-        str: Текс
+        str: Текст
     """
     RLE_list = []
     for i in range(0,len(REL_text),2):
@@ -46,9 +48,9 @@ def RLE_in_string(REL_text: str) -> str:
     return result
 
 def file_create(path : str,text : str):
-    """Созадёт файл с текстом
+    """Создание файла с текстом
     Args:
-        path (str): Название/Путь_файла
+        path (str): Название и путь к файлу
         text (str): текст для записи
     """
     file = open(path , "w",encoding='utf-8')
@@ -56,11 +58,11 @@ def file_create(path : str,text : str):
     file.close()
 
 def file_read(path : str) -> str:
-    """Читает файл и возвращает строку
+    """Чтение файла и возврат строки
     Args:
-        path (str): Название/Путь файла
+        path (str): название и путь к файлу
     Returns:
-        str: возвращает строку
+        str: возвращение строки
     """
     file = open(path , "r",encoding='utf-8')
     data = file.read()
@@ -70,19 +72,16 @@ file_name = "text"
 file_format = "txt"
 file_path = file_name+"."+file_format
 
-str_text = "aaaaaaaawwwwwaaaaaabbbbababaaaaaawwwww111122223333"
+str_text = "oooooooohhhhhhhhmmmmmmmllllllliiii1111119999990000"
 
-# много топорной работы - но хочу сосредоточится на более сложных задачах
-# Можно было бы вывести переименовыванеие файлов в лямду или в функии, но мне с ними нужно попрактиковаться, что бы понять
+file_create(file_path,str_text) 
+text_line = file_read(file_path)
 
-file_create(file_path,str_text) # делает изначально файл с текстом ( в релаьной жизни - файл будет)
-line_of_text = file_read(file_path)
-
-file_name = "REL_text"
+file_name = "RLE_test_text"
 file_path = file_name+"."+file_format
-file_create(file_path,RLE_code(spliting_text(line_of_text))) # То что считал до этого - перевёл в КОД и записал в новый файл
+file_create(file_path,RLE(text_split(text_line)))
 RLE_code_text = file_read(file_path)
 
 file_name = "text_from_RLE"
 file_path = file_name+"."+file_format
-file_create(file_path,RLE_in_string(RLE_code_text)) # Код с файла - переводит в строку и записывает в новый файл 
+file_create(file_path,RLE_str(RLE_code_text)) 
