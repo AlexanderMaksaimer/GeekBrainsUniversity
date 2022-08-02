@@ -1,15 +1,15 @@
 # задача - получит от пользователя данные, и создать кортеж 
 
-import dict as Dic
+import Dictionary as GLO
 
-def row_creation_fun \
+def glossary_creation \
     (
         First_name = " ", 
         Last_name = " ", 
         Other_name = " ",
-        sex = 0 ,
+        gender = 0 ,
         type_of_contact = 0, 
-        tel_number = "",
+        phone_number = "",
         data = {}
         
     ):
@@ -19,9 +19,9 @@ def row_creation_fun \
             "First name" : First_name ,
             "Second name" : Last_name , 
             "Othen name" : Other_name ,
-            "Sex" : Dic.sex_dic[sex] ,
-            "Type of Contact" : Dic.type_of_contact_dic[type_of_contact] , 
-            "Tel number" : tel_number
+            "Sex" : GLO.gender_dictionary[gender] ,
+            "Type of Contact" : GLO.contact_type_dictionary[type_of_contact] , 
+            "Tel number" : phone_number
         }
     if len(data) == 0:
         phone_dic[0] = person_info

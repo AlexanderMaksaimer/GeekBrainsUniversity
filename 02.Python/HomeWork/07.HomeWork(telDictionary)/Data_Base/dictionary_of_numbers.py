@@ -1,22 +1,21 @@
-# задача - получит от пользователя данные, и создать кортеж 
-# Изначальная идея базы данных - для простоты упростил её
+# задача - получить от пользователя данные, и создать кортеж 
 
-import dict as Dic
+import Dictionary as GLO
 
-def phone_number_row_creation \
+def phone_number_cortege \
     (
         First_name = " ", 
         Last_name = " ", 
         Other_name = " ",
         type_of_contact = 0, 
-        sex = 0 ,
-        bithd_day = " ",
+        gender = 0 ,
+        bitrhday = " ",
+        addres = " ",
         Commentary = " " ,
-        Company_name = " ",
-        fav_check = False ,
+        Workplace = " ",
         type_of_number = 0 ,
-        tel_number = " ",
-        telefon_comment = "" ,
+        phone_number = " ",
+        discription = "" ,
         email = " ",
         data = {}
         
@@ -25,26 +24,26 @@ def phone_number_row_creation \
     Перед началом загружает справочник , для того что бы подобрать последний ключ и новый добавлять по новому ключу 
     возвращает словарь - строчку с данными
     """
-    phone_dic = data
-    tel_number_dic = \
+    phone_numbers = data
+    telephone_number_dict = \
         {
-            "Telefon type" : Dic.tel_type_dic[type_of_number] ,
-            "Telefon number" : tel_number ,
-            "Telefon comment" : telefon_comment,
+            "Тип номера телефона" : GLO.phone_number_dictionary[type_of_number] ,
+            "Номер телефона" : phone_number ,
+            "Комментарий" : discription,
             "E-mail" : email  
         } 
     person_info = \
         {
-            "First name" : First_name ,
-            "Second name" : Last_name , 
-            "Othen name" : Other_name ,
-            "Type of Contact" : Dic.type_of_contact_dic[type_of_contact] , 
-            "Sex" : Dic.sex_dic[sex] ,
-            "Birth Day" : bithd_day ,
-            "Comment" : Commentary ,
-            "Company" : Company_name ,
-            "Fav check" : fav_check,
-            "Tel_info" : tel_number_dic
+            "Имя" : First_name ,
+            "Фамилия" : Last_name , 
+            "Отчество" : Other_name ,
+            "Тип контакта" : GLO.contact_type_dictionary[type_of_contact] , 
+            "Пол" : GLO.gender_dictionary[gender] ,
+            "Дата рождения" : GLO.bitrhday_date_dictionary[bitrhday] ,
+            "Адрес" : GLO.addres_dictionary [addres],
+            "Комментарий" : Commentary ,
+            "Место работы" : GLO.work_place_dictionary [Workplace],
+            "Информация о номере" : telephone_number_dict
         }
-    phone_dic[int(max(phone_dic.keys()))+1] = person_info
-    return phone_dic
+    phone_numbers[int(max(phone_numbers.keys()))+1] = person_info
+    return phone_numbers
