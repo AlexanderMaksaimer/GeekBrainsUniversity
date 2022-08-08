@@ -32,7 +32,7 @@ def hello_user ():
 def start():
     global conn
     global cur
-    conn = sqlite3.connect("ToDoIst.json")
+    conn = sqlite3.connect("ToDoIst_data.json")
     cur = conn.cursor()
 
 def begining(dictionary):
@@ -71,7 +71,7 @@ def search_task(): #поиск через выпадающий список
     #search.grid(column = 0, row = 0)
 
 def task_save_information(): #сохранение информации
-    with open("data_file.json", "w", encoding='utf-8') as write_file:
+    with open("ToDoIst_data.json", "w", encoding='utf-8') as write_file:
         json.dump(dictionary, write_file, indent=4, ensure_ascii=False)
     messagebox.showinfo("Успех!", "Информация сохранена")
 
@@ -87,7 +87,7 @@ def delete_all_tasks(): #удаление всех задач
     task_box.delete(0, i)
     dictionary.clear()
     i = 1
-    with open("data_file.json", "w") as write_file:
+    with open("ToDoIst_data.json", "w") as write_file:
         json.dump(dictionary, write_file, indent=4)
     messagebox.showinfo("Гуд жоб", "Все дела исполнены. Дел больше нет")
 
