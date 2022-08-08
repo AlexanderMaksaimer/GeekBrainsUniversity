@@ -1,7 +1,7 @@
 # 2- Найти сумму чисел списка стоящих на нечетной позиции
 
 def sum_elements(list_of_num : list):
-    sum_of_num = 0
+    sum_of_num = 0              #a-название функции; index - позиция(индекс) в списке; 
     for i in list(filter(lambda a : list_of_num.index(a)%2 != 0  , list_of_num)):
         sum_of_num += i
     return sum_of_num

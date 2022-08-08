@@ -4,7 +4,7 @@ import input_data
 def button_click():
     a = input_data.get_value()
     b = input_data.get_value()
-    op = input("Введите оператцию: +, -, *, / \n")
+    op = input("Введите операцию: +, -, *, / \n")
     if op == "+":
         result = model.plus(a, b)
     elif op == "-":
