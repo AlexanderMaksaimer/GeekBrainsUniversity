@@ -7,7 +7,7 @@ import interface as UI
 
 application_window = Tk()
 application_window.title('MyDoList')
-application_window.geometry('500x400')
+application_window.geometry('500x300')
 
 i = None
 interim_list = []
@@ -17,7 +17,7 @@ with open('ToDoIst_data.json', 'r', encoding='utf-8') as read_file:
     dictionary = json.load(read_file)
 
 task_box = Listbox(selectmode=MULTIPLE, font=('Neuropol Medium', 11))
-task_box.pack(fill = BOTH, expand = True)
+task_box.grid(row=0, column=0, padx=45, columnspan=3, sticky=W+E)
 
 # Спрашиваем имя пользователя
 def hello_user ():
@@ -64,10 +64,10 @@ def add_task(data_base: list): #создаем новую задачу
     conn.commit()
     return print("Новая задача добавлена")
 
-def search_task(): #поиск через выпадающий список
-    search = ComboBox(application_window)
-    search['values'] = (dictionary)
-    search.current(1)
+#def search_task(): #поиск через выпадающий список
+ #   search = ComboBox(application_window)
+  #  search['values'] = (dictionary)
+   # search.current(1)
     #search.grid(column = 0, row = 0)
 
 def task_save_information(): #сохранение информации
@@ -91,7 +91,7 @@ def delete_all_tasks(): #удаление всех задач
         json.dump(dictionary, write_file, indent=4)
     messagebox.showinfo("Гуд жоб", "Все дела исполнены. Дел больше нет")
 
-def ExitApp(): #выход из приложения
+def exit_app(): #выход из приложения
     exitmessage = messagebox.askquestion('Выход из приложения. Действительно хотите выйти?', icon = "error")
     if exitmessage == 'Да':
         application_window.destroy()
@@ -105,16 +105,16 @@ task_entry = UI.entry(application_window, 20)
 task_entry.grid(row=1, column=1)
 
 button_view_all_tasks = UI.button('Показать все дела(задачи)', view_all_tasks, "white", "green", 9)
-button_view_all_tasks.grid(row=3, column=0)
+button_view_all_tasks.grid(row=2, column=3)
 
-button_view_all_tasks = UI.button('Поиск через выпадающий список', search_task, "grey", "green", 9)
-button_view_all_tasks.grid(row=0, column=0)
+button_task_search = UI.button('Поиск через выпадающий список', search_task, "grey", "green", 9)
+button_task_search.grid(row=1, column=3)
 
 button_add_task = UI.button('Добавить', add_task, "grey", "green", 8)
 button_add_task.grid(row=1, column=2)
 
-button_view_all_tasks = UI.button('Удалить всё', delete_all_tasks, "black", "red", 9)
-button_view_all_tasks.grid(row=3, column=0)
+button_delete_all = UI.button('Удалить всё', delete_all_tasks, "black", "red", 9)
+button_delete_all.grid(row=3, column=3)
 
 button_save = UI.button('Сохранить', task_save_information, "grey", "orange", 8)
 button_save.grid(row=2, column=2)
