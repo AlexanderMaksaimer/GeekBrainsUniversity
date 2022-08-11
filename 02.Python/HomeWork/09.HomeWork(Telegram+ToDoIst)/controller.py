@@ -21,16 +21,17 @@ def read_file(filename: str) -> dict:
 
 data_base_tasks = read_file('data.json')
 
-
 def add_task(task: dict, arg: str) -> str:
-    new_task = arg
-    id_new_task = max(list(x for x in task.keys())) + 1
-    result_new = {
+    new_task = arg 
+    data_base_new = {
         'TASK': new_task,
         'STATUS': 0
     }
-    task[id_new_task] = result_new
+    task = data_base_new
+    with open('data.json','w',encoding='utf-8') as file:
+        file.write(json.dumps(task))
     return f"Ваша задача => {new_task} => добавлена."
+    
 
 
 def del_task(task: dict, ID: str) -> str:
@@ -55,12 +56,6 @@ def info_save(task: dict) -> str:
 
 
 def task_print(task_list: dict, status: int) -> str:
-    """
-    Вывод в консоль списка дел на основе переданного значения 'done'.
-    :param to_do: словарь с данными.
-    :param done: параметр match для печати соответствующих данных.
-    :return: None.
-    """
     list_temp = []
     if status == 1:
         for key, value in task_list.items():
@@ -76,5 +71,5 @@ def task_print(task_list: dict, status: int) -> str:
         for value in task_list.values():
             for k, v in value.items():
                 if k == 'performed' and not v:
-                    list_temp.append(value['task'])
+                    list_temp.append(value['TASK'])
         return '\n'.join(list_temp)

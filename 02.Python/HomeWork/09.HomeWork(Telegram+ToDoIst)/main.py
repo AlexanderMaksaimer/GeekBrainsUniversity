@@ -26,7 +26,8 @@ keyboard = ReplyKeyboardMarkup([
      KeyboardButton('Изменить'),
      KeyboardButton('Удалить')],
 
-    [KeyboardButton('Сохранить изменения')]
+    [KeyboardButton('Сохранить изменения'),
+     KeyboardButton('Выход')]
 ], resize_keyboard=True)
 
 bot = Bot(token=TOKEN)
@@ -76,11 +77,11 @@ def message(update, context):
     text = update.message.text
     if text.lower() == 'привет':
         context.bot.send_message(update.effective_chat.id, 'И куда тебя это привело?Снова ко мне...')
-    elif text.lower() == 'посмотреть все':
+    elif text.lower() == 'глянуть все задачи':
         context.bot.send_message(update.effective_chat.id, f'{task_print(data_base_tasks, 1)}')
-    elif text.lower() == 'посмотреть готовые':
+    elif text.lower() == 'оценить на сколько ты хорош':
         context.bot.send_message(update.effective_chat.id, f'{task_print(data_base_tasks, 2)}')
-    elif text.lower() == 'посмотреть в работе':
+    elif text.lower() == 'оценить фронт работы':
         context.bot.send_message(update.effective_chat.id, f'{task_print(data_base_tasks, 3)}')
     elif text.lower() == 'добавить':
         context.bot.send_message(update.effective_chat.id, 'Напишите задачу, которую хотите добавить:')
@@ -142,7 +143,7 @@ conv_handler = ConversationHandler(
         TASK: [MessageHandler(Filters.text, task_add)]
     },
         # точка выхода из разговора
-    fallbacks=[CommandHandler('cancel', cancel)]
+    fallbacks=[CommandHandler('stop', stop)]
     )
      # Определяем обработчик разговоров `ConversationHandler` 
 conv_handler2 = ConversationHandler(
@@ -153,7 +154,7 @@ conv_handler2 = ConversationHandler(
         ID: [MessageHandler(Filters.text, delete_task)]
     },
     # точка выхода из разговора
-    fallbacks=[CommandHandler('cancel', cancel)]
+    fallbacks=[CommandHandler('stop', stop)]
     )
      # Определяем обработчик разговоров `ConversationHandler` 
 conv_handler3 = ConversationHandler(
@@ -166,7 +167,7 @@ conv_handler3 = ConversationHandler(
         STATUS: [MessageHandler(Filters.text, change_task_status)]
     },
         # точка выхода из разговора
-    fallbacks=[CommandHandler('cancel', cancel)]
+    fallbacks=[CommandHandler('stop', stop)]
     )
     
 start_handler = CommandHandler('start', start)
