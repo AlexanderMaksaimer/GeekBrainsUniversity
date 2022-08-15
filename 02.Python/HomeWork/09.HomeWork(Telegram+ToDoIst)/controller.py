@@ -1,5 +1,12 @@
 import json
 
+data = {
+    1: {
+"todo": "Сказать про json",
+"status": "new"
+}
+}
+
 def read_file(filename: str) -> dict:
     """
     Выгружает в память словарь с данными из JSON файла.
@@ -8,9 +15,11 @@ def read_file(filename: str) -> dict:
     """
     data_base = {}
     try:
-        with open('data.json', 'r', encoding='utf-8') as file:
-            db = json.load(file)
-            for row in db:
+        with open("data_file.json", "r", encoding='utf-8') as read_file:
+            data_from_file = json.load(read_file, object_hook=_decode)
+        #open('data.json', 'r', encoding='utf-8') as file:
+            #db = json.load(file)
+            for row in data_from_file:
                 data_base[int(row[0])] = {
                     'TASK': str(row[1]),
                     'STATUS': int(row[2])
@@ -28,11 +37,27 @@ def add_task(task: dict, arg: str) -> str:
         'STATUS': 0
     }
     task = data_base_new
-    with open('data.json','w',encoding='utf-8') as file:
-        file.write(json.dumps(task))
+    with open("data_file.json", "w", encoding='utf-8') as write_file: #Запись:
+            json.dump(data, write_file,#запись в файл
+                ensure_ascii=False,#можно не ASCII-символы - для русского языка
+                indent = 4) #отступы 
+    # open('data.json','w',encoding='utf-8') as file:
+    #     file.write(json.dumps(task))
     return f"Ваша задача => {new_task} => добавлена."
     
-
+#На выходе получается именно словарь! Такой же, как выше в data, но за одним исключением: id выходит строкой. Берем код из интернета:
+def _decode(o):
+    if isinstance(o, str):
+        try:
+            return int(o)
+        except ValueError:
+            return o
+    elif isinstance(o, dict):
+        return {k: _decode(v) for k, v in o.items()}
+    elif isinstance(o, list):
+        return [_decode(v) for v in o]
+    else:
+        return o
 
 def del_task(task: dict, ID: str) -> str:
     try:
