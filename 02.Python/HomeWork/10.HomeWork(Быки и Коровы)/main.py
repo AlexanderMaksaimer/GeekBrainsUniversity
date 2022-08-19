@@ -27,8 +27,6 @@ def start(update, context):
     count = 1
     context.bot.send_message(update.effective_chat.id,
                              f'Bongiorno!! Имеешь желание катнуть в "Быки и Коровы"?\n')
-    context.bot.send_message(update.effective_chat.id,
-                             f'Для выхода из игры введите /stop\n')
     context.bot.send_message(update.effective_chat.id, 'Меня зовут Владыка Ситхов и Быков, а как тебя величают?')
     return PLAYER
 
@@ -36,9 +34,9 @@ def start(update, context):
 def player_name(update, context):
     global player, count
     player = update.message.text
-    context.bot.send_message(update.effective_chat.id, 'Игра началась... <b>У тебя есть 10 попыток...</b>')
-    context.bot.send_message(update.effective_chat.id, 'Введите число:')
+    context.bot.send_message(update.effective_chat.id, 'Игра началась.У тебя есть 10 попыток.')
     context.bot.send_message(update.effective_chat.id, f'Попытка №{count}...')
+    context.bot.send_message(update.effective_chat.id, 'Введите число:')
     return STEP
 
 
@@ -73,6 +71,7 @@ def take_move(update, context):
 def another_message(update, context):  # случаи ввода иных сообщений
     context.bot.send_message(update.effective_chat.id, f'Мы тут играем только в Быки и Коровы')
     context.bot.send_message(update.effective_chat.id, f'Если хочешь сыграть ещё раз - введи /start')
+    context.bot.send_message(update.effective_chat.id, f'Для выхода из игры введите /stop\n')
 
 
 def stop(update, context):  # конец игры
@@ -96,12 +95,12 @@ conv_handler = ConversationHandler(
 
 message_handler = MessageHandler(Filters.text, another_message)
 unknown_handler = MessageHandler(Filters.command, another_message)
+stop_handler = CommandHandler('stop', stop)
 
 dispatcher.add_handler(conv_handler)
 dispatcher.add_handler(message_handler)
 dispatcher.add_handler(unknown_handler)
-
-dispatcher.add_handler(conv_handler)
+dispatcher.add_handler(stop_handler)
 
 print('Чувствую силу в тебе')
 updater.start_polling()
