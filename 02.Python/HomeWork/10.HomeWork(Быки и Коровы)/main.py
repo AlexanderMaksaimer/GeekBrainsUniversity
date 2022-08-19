@@ -28,14 +28,16 @@ def start(update, context):
     context.bot.send_message(update.effective_chat.id,
                              f'Bongiorno!! Имеешь желание катнуть в "Быки и Коровы"?\n')
     context.bot.send_message(update.effective_chat.id, 'Меня зовут Владыка Ситхов и Быков, а как тебя величают?')
+    context.bot.send_message(update.effective_chat.id, f'Если захочешь сыграть ещё раз - введи /start\n')
+    context.bot.send_message(update.effective_chat.id, f'Для выхода из игры введите /stop\n')
     return PLAYER
 
 
 def player_name(update, context):
     global player, count
     player = update.message.text
-    context.bot.send_message(update.effective_chat.id, 'Игра началась.У тебя есть 10 попыток.')
-    context.bot.send_message(update.effective_chat.id, f'Попытка №{count}...')
+    context.bot.send_message(update.effective_chat.id, f'Игра началась, {player}.У тебя есть 10 попыток.')
+    context.bot.send_message(update.effective_chat.id, f'Попытка №{count}')
     context.bot.send_message(update.effective_chat.id, 'Введите число:')
     return STEP
 
@@ -80,7 +82,7 @@ def stop(update, context):  # конец игры
     logger.info("Пользователь %s завершил разговор.", user.first_name)
 #      # Отвечаем на отказ поговорить
     context.bot.send_message(update.effective_chat.id, 
-        'Мое дело предложить - Ваше отказаться'
+        'Мое дело предложить - Ваше отказаться\n'
         'Che la forza sia con voi!')
     return ConversationHandler.END
 
@@ -88,8 +90,9 @@ def stop(update, context):  # конец игры
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler('start', start)],
     states={
-        PLAYER: [MessageHandler(Filters.text, player_name)],
-        STEP: [MessageHandler(Filters.text, take_move)]
+        PLAYER: [MessageHandler(Filters.text&~Filters.command, player_name)],
+        STEP: [MessageHandler(Filters.text&~Filters.command, take_move)]
+        # [MessageHandler(Filters.text& ~Filters.command для того чтобы работал выход из разговора)
     },
     fallbacks=[CommandHandler('stop', stop)])
 
