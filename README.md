@@ -18,8 +18,15 @@
 ### **[02.Python](02.Python/)** - Знакомство с языком Python (пайтон))
 
 1. **[Lessons](02.Python/Lessons/)** - _Лекции по теме Знакомство с языком Python
-2. **[Seminars C#](02.Python/Seminars/)** - _Семинары с примерами задач_
+2. **[Seminars Python](02.Python/Seminars/)** - _Семинары с примерами задач_
 3. **[HomeWork](02.Python/HomeWork/)** - _Домашние задания по семинарам_
+
+### **[03.Web(HTML+CSS+JS)](03.Web/)** - Веб технологии 
+
+1. **[Lessons](03.Web/01.Lessons/)** - _Лекции по теме Знакомство с языком Python
+2. **[Seminars](03.Web/02.Seminars/)** - _Семинары_
+3. **[HomeWork](03.Web/03.HomeWork/)** - _Домашние задания_
+
 
 ### **[Help](Help)** - Шпаргалки по разным темам
 
