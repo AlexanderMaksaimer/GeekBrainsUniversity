@@ -7,7 +7,8 @@ h1 {
 }
 
 p {
-    color:chartreuse;
+    color:black;
+    size: 14px;
     font-size: large;
     font-weight: 400;
     text-shadow: 0ch;
@@ -77,9 +78,7 @@ p {
 
 .content {
     width: 1200px;
-    background: url(background.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: white;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
