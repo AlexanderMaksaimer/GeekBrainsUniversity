@@ -1,0 +1,103 @@
+h1 {
+    color: aliceblue;
+    font-size: large;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+p {
+    color:black;
+    size: 14px;
+    font-size: large;
+    font-weight: 400;
+    text-shadow: 0ch;
+    text-decoration-color: aquamarine;
+}
+
+.header {
+    height: 550px;
+    background: url(img3.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.footer {
+    height: 150px;
+    background-color: yellow;
+    padding-top: 50px;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.block1 {
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: url(img2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.block2 {
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: url(img1.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.block3 {
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: url(img4.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.block4 {
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: url(img5.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    width: 1200px;
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button {
+    width: 100px;
+    height: 40px;
+    background-color: crimson;
+    color:aliceblue;
+    text-align: center;
+    line-height: 40px;
+    margin: 200px auto 0;
+}
+
+.button:hover{
+    background-color: blue;
+    color: chartreuse;
+    border: 1px solid black;
+}
+
