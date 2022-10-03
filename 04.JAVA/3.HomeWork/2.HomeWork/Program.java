@@ -4,7 +4,7 @@
 // Дано два числа, например 3 и 56, необходимо составить следующие строки: 3 + 56 = 59 3 – 56 = -53 3 * 56 = 168 Используем метод StringBuilder.append().
 // Замените символ “=” на слово “равно”. Используйте методы StringBuilder.insert(),StringBuilder.deleteCharAt().
 // *Замените символ “=” на слово “равно”. Используйте методы StringBuilder.replace().
-// **Сравнить время выполнения пунка 6 со строкой содержащей 10000 символов "=" средствами String и StringBuilder.
+// **Сравнить время выполнения пункта 6 со строкой содержащей 10000 символов "=" средствами String и StringBuilder.
 
 import java.util.Scanner;
 
@@ -14,25 +14,25 @@ public class Program {
         return str;
     }
 
-    static void SearchWindow(String str1, String str2) {
+    static void SearchWindow(String str1, String str2) { // поиск окна в строке
         if (str1.contains(str2))
             System.out.println("Окно найдено!");
         else
             System.out.println("Окошек не найдено");
     }
 
-    static boolean Rotation(String s1, String s2) {
+    static boolean Rotation(String s1, String s2) { // вращение строк
         return (s1.length() == s2.length()) && ((s1 + s1).indexOf(s2) != -1);
     }
-
-    static String Reverse(String str) {
+ 
+    static String Reverse(String str) { // рекурсия (разворот)
         if (str.length() <= 1) {
             return str;
         }
         return Reverse(str.substring(1)) + str.charAt(0);
     }
 
-    static StringBuilder getLine() {
+    static StringBuilder getLine() { // сравнить время выполнения замены = на равно 
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < 10000; i++) {
             str.append("=");
@@ -71,7 +71,7 @@ public class Program {
         System.out.println(Reverse(str));
         String nums1 = "3";
         String nums2 = "56";
-        StringBuilder res = new StringBuilder();
+        StringBuilder res = new StringBuilder(); // составить строчки
         res.append(nums1 + "+" + nums2 + "=" + "59" + " " + nums1 + "-" + nums2 + "="
         + "-59" + " " + nums1 + "*"
         + nums2 + "=" + "168");
