@@ -9,7 +9,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Programm {
+public class Programm5 {
     /**
      * @param args
      */
