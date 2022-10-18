@@ -11,7 +11,6 @@ import java.util.Random;
 import java.util.TreeSet;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Iterator;
 
 public class HomeWork6 {
     public static void main(String[] args) { // 1. Объявить и инициализировать множества HashSet hs, LinkedHashSet lhs и TreeSet ts
@@ -29,9 +28,11 @@ public class HomeWork6 {
         }
 
        // 3. Пройти по множеству hs и, при условии наличия соответствующего ключа в множестве lhs, удалить ключ из hs
+        System.out.println("До манипуляций");
         System.out.println(hs);
         System.out.println(lhs);
         System.out.println("-----");
+        System.out.println("После манипуляций");
         hs.removeAll(lhs);
         System.out.println(hs);
 
